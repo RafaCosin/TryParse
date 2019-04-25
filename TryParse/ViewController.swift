@@ -8,26 +8,33 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    var movie = [Movie]()
+class ViewController: UITableViewController {
+
+
     
+    var movie = [Movie]()
+    var kkk = [Movie]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        getJSON()
+        getJSON(movieCompletionHandler: {movie, error in
+            if let peli = movie {
+                self.movie = peli
+            }
+        })
         
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        for mov in movie {
-            print(mov)
-        }
+     
     }
 
-    func getJSON() {
+    func getJSON(movieCompletionHandler: @escaping ([Movie]?, Error?) -> Void) {
     
         let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=7a312711d0d45c9da658b9206f3851dd&language=en-US&page=1")
     
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: url!, completionHandler: {
+            
+         (data, response, error) in
             guard let data = data,
                 error == nil else {
                     print(error?.localizedDescription ?? "Response Error")
@@ -36,18 +43,21 @@ class ViewController: UIViewController {
                 
                 let decoder = JSONDecoder()
                 let user = try! decoder.decode(MovieResults.self, from: data)
-//                for i in 0...user.results.count - 1 {
-//                    print(user.results[i].title)
-//                    self.movie.append(user.results[i])
-//                }
-                   self.movie = user.results
+                let otro = user.results
+                for i in 0...user.results.count - 1 {
+                    print(user.results[i].title)
+                    self.kkk.append(user.results[i])
+                }
+                
                    print(self.movie.count)
+                   movieCompletionHandler(otro,nil)
                 
                 
-            } catch  {
+            } catch  let parseErr {
                 print("Error" )
+                movieCompletionHandler(nil,parseErr)
             }
-        }
+        })
         task.resume()
 
     }

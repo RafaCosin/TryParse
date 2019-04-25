@@ -13,6 +13,8 @@
 		3894B8882271E0AD00F617EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3894B8872271E0AD00F617EB /* Assets.xcassets */; };
 		3894B88B2271E0AD00F617EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3894B8892271E0AD00F617EB /* LaunchScreen.storyboard */; };
 		3894B8932271E0C200F617EB /* Modelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3894B8922271E0C200F617EB /* Modelo.swift */; };
+		3894B895227210E600F617EB /* TryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3894B894227210E600F617EB /* TryTableViewCell.swift */; };
+		3894B897227215C600F617EB /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3894B896227215C600F617EB /* MainTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3894B88A2271E0AD00F617EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3894B88C2271E0AD00F617EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3894B8922271E0C200F617EB /* Modelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modelo.swift; sourceTree = "<group>"; };
+		3894B894227210E600F617EB /* TryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryTableViewCell.swift; sourceTree = "<group>"; };
+		3894B896227215C600F617EB /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 			children = (
 				3894B8802271E0A400F617EB /* AppDelegate.swift */,
 				3894B8822271E0A400F617EB /* ViewController.swift */,
-				3894B8842271E0A400F617EB /* Main.storyboard */,
+				3894B894227210E600F617EB /* TryTableViewCell.swift */,
+				3894B8922271E0C200F617EB /* Modelo.swift */,
 				3894B8872271E0AD00F617EB /* Assets.xcassets */,
+				3894B8842271E0A400F617EB /* Main.storyboard */,
 				3894B8892271E0AD00F617EB /* LaunchScreen.storyboard */,
 				3894B88C2271E0AD00F617EB /* Info.plist */,
-				3894B8922271E0C200F617EB /* Modelo.swift */,
+				3894B896227215C600F617EB /* MainTableViewController.swift */,
 			);
 			path = TryParse;
 			sourceTree = "<group>";
@@ -141,6 +147,8 @@
 				3894B8932271E0C200F617EB /* Modelo.swift in Sources */,
 				3894B8832271E0A400F617EB /* ViewController.swift in Sources */,
 				3894B8812271E0A400F617EB /* AppDelegate.swift in Sources */,
+				3894B897227215C600F617EB /* MainTableViewController.swift in Sources */,
+				3894B895227210E600F617EB /* TryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
