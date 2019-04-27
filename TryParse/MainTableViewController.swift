@@ -27,61 +27,13 @@ class MainTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
              })
-           filterMovies = movie
+           //filterMovies = movie
         }
 }
-//    func getJSON(movieCompletionHandler:  @escaping ([Movie]?,Error?) -> Void) {
-//
-//            let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=7a312711d0d45c9da658b9206f3851dd&language=en-US&page=1")
-//
-//            let task = URLSession.shared.dataTask(with: url!,completionHandler: { (data, response, error) in
-//
-//                guard let data = data,
-//                    error == nil else {
-//                        print(error?.localizedDescription ?? "Response Error")
-//                        return }
-//                do {
-//                    let decoder = JSONDecoder()
-//                    let user = try decoder.decode(MovieResults.self, from: data)
-//                    DispatchQueue.main.async {
-//                        movieCompletionHandler(user.results, nil)
-//
-//                    }
-//                } catch  let parseErr {
-//                    print("Error" )
-//                    DispatchQueue.main.async {
-//                        movieCompletionHandler(nil, parseErr)
-//                    }
-//                }
-//            })
-//            task.resume()
-//        }
-//    }
-// func imageFromServerURL(url: URL, imgcompletionHandler: @escaping (UIImage?, Error?) -> Void) {
-//    //print("en funcion : \(url)")
-//    let task = URLSession.shared.dataTask(with: url,completionHandler: { (data, response, error) in
-//
-//        if error != nil {
-//            DispatchQueue.main.async {
-//                imgcompletionHandler(nil,error)
-//            }
-//        }
-//        guard let datos = data else {return}
-//        DispatchQueue.main.async {
-//            print("data : dispatch)")
-//            let image = UIImage(data: datos)
-//
-//            imgcompletionHandler(image,nil)
-//
-//        }
-//    }).resume()
-//}
-
 
 extension MainTableViewController {
  
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return the number of rows
         if  searchBarActive {
@@ -89,10 +41,7 @@ extension MainTableViewController {
         } else {
             return movie.count
         }
-
-         
-}
-
+    }
 
  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     var task : Movie!
@@ -108,13 +57,12 @@ extension MainTableViewController {
     
     cell.overviewLabel.text = task.overview
     cell.titleLabel.text = task.title
-    
+    cell.yearLabel.text = "Year : " + task.year
     //"w92", "w154", "w185", "w342", "w500", "w780", or "original"
-    let imgFixed = "https://image.tmdb.org/t/p/w154"
+    let imgFixed = "https://image.tmdb.org/t/p/w185"
     let imageURL = task.posterPath
     let completa = URL(string: imgFixed + imageURL)!
-  
-    
+
     imageFromServerURL(url: completa, imgcompletionHandler: {(image,error) in
         if let imagen = image {
               let pepe = imagen
@@ -125,7 +73,15 @@ extension MainTableViewController {
     })
     return cell
  }
- 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return UITableView.automaticDimension
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 }
 extension MainTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
     
@@ -137,7 +93,7 @@ extension MainTableViewController: UISearchBarDelegate, UISearchResultsUpdating 
         searchController.dimsBackgroundDuringPresentation = false
         tableView.tableHeaderView = searchController.searchBar
         
-             //self.navigationItem.titleView = searchBar
+             //self.navigationItem.titleView = searchController
 
     }
     

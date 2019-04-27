@@ -19,16 +19,18 @@ struct Movie: Decodable {
     let backdrop: String
     let title: String
     var releaseDate: String
+    let year: String
     var rating: Double
     let overview: String
     
     
-    init(id: Int, posterPath: String,  backdrop: String, title: String, releaseDate: String, rating: Double, overview: String) {
+    init(id: Int, posterPath: String,  backdrop: String, title: String, releaseDate: String, year: String, rating: Double, overview: String) {
         self.id = id
         self.posterPath = posterPath
         self.backdrop = backdrop
         self.title = title
         self.releaseDate = releaseDate
+        self.year = year
         self.rating = rating
         self.overview = overview
     }
@@ -51,9 +53,10 @@ struct Movie: Decodable {
         let backdrop: String = try container.decode(String.self, forKey: .backdrop)
         let title: String = try container.decode(String.self, forKey: .title)
         let releaseDate: String = try container.decode(String.self, forKey: .release)
+        let year: String = String(releaseDate.prefix(4))
         let rating: Double = try container.decode(Double.self, forKey: .rating)
         let overview: String = try container.decode(String.self, forKey: .overview)
         
-        self.init(id: id, posterPath: posterPath, backdrop: backdrop, title: title, releaseDate: releaseDate, rating: rating, overview: overview)
+        self.init(id: id, posterPath: posterPath, backdrop: backdrop, title: title, releaseDate: releaseDate, year: year, rating: rating, overview: overview)
     }
 }
