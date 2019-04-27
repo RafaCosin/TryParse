@@ -59,7 +59,7 @@ extension MainTableViewController {
     cell.titleLabel.text = task.title
     cell.yearLabel.text = "Year : " + task.year
     //"w92", "w154", "w185", "w342", "w500", "w780", or "original"
-    let imgFixed = "https://image.tmdb.org/t/p/w185"
+    let imgFixed = "https://image.tmdb.org/t/p/w154"
     let imageURL = task.posterPath
     let completa = URL(string: imgFixed + imageURL)!
 
@@ -80,7 +80,7 @@ extension MainTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 70
     }
 }
 extension MainTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
