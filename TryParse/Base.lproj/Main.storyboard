@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Table View Controller-->
+        <!--Title-->
         <scene sceneID="TUl-LV-TB6">
             <objects>
                 <tableViewController id="dJ3-Vl-N7V" customClass="MainTableViewController" customModule="TryParse" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,7 +31,7 @@
                                                 <constraint firstAttribute="width" constant="89" id="0EB-x1-GZc"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZCn-29-dkx">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCn-29-dkx">
                                             <rect key="frame" x="105" y="7" width="254" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="os6-SI-7te"/>
@@ -72,7 +72,7 @@
                             <outlet property="delegate" destination="dJ3-Vl-N7V" id="pDG-RN-SuB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Icg-MX-4yc"/>
+                    <navigationItem key="navigationItem" title="Title" id="9QC-d0-cWa"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBU-9Q-VqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

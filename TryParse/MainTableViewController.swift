@@ -11,8 +11,15 @@ import UIKit
 class MainTableViewController: UITableViewController {
     
      var movie = [Movie]()
+     var filterMovies = [Movie]()
+     var searchBarActive = false
+     let searchController = UISearchController(searchResultsController: nil)
+    
      override func viewDidLoad() {
             super.viewDidLoad()
+        
+            initSearchController()
+        
             getJSON(movieCompletionHandler: {
                  (movie, error) in
                 if let movie = movie {
@@ -20,6 +27,7 @@ class MainTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
              })
+           filterMovies = movie
         }
 }
 //    func getJSON(movieCompletionHandler:  @escaping ([Movie]?,Error?) -> Void) {
@@ -75,15 +83,29 @@ extension MainTableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
-        return movie.count
+        // return the number of rows
+        if  searchBarActive {
+            return filterMovies.count
+        } else {
+            return movie.count
+        }
+
+         
 }
 
 
  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
+    var task : Movie!
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TryTableViewCell
-    let task = movie[indexPath.row]
+    
+    print("searchBarActive \(searchBarActive)")
+    if searchBarActive {
+          task = filterMovies[indexPath.row]
+    } else {
+          task = movie[indexPath.row]
+    }
+    
+    
     cell.overviewLabel.text = task.overview
     cell.titleLabel.text = task.title
     
@@ -105,4 +127,34 @@ extension MainTableViewController {
  }
  
 }
+extension MainTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
+    
+    
+    func initSearchController() {
+        
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        
+             //self.navigationItem.titleView = searchBar
 
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBarActive = true
+    }
+    func updateSearchResults(for searchController: UISearchController) {
+        searchBarActive = true
+        let pepe = searchController.searchBar.text!
+        filterMovies = movie.filter{ $0.title.contains(pepe) }
+        //filterMovies.forEach { print($0.title) }
+        if filterMovies.count == 0 {
+            searchBarActive = false
+        }
+        self.tableView.reloadData()
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBarActive = false
+    }
+}
