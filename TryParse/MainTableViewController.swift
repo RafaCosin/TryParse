@@ -13,13 +13,17 @@ class MainTableViewController: UITableViewController {
      var movie = [Movie]()
      var filterMovies = [Movie]()
      var searchBarActive = false
-     let searchController = UISearchController(searchResultsController: nil)
+    // let searchController = UISearchController(searchResultsController: nil)
     
-     override func viewDidLoad() {
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    override func viewDidLoad() {
             super.viewDidLoad()
-        
-            initSearchController()
-        
+            initSearchBar()
+            //initSearchController()
+            tableView.separatorStyle = .none
+            title = "Privalia Popular films"
             getJSON(movieCompletionHandler: {
                  (movie, error) in
                 if let movie = movie {
@@ -27,7 +31,7 @@ class MainTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
              })
-           //filterMovies = movie
+        
         }
 }
 
@@ -65,12 +69,13 @@ extension MainTableViewController {
 
     imageFromServerURL(url: completa, imgcompletionHandler: {(image,error) in
         if let imagen = image {
-              let pepe = imagen
+            
             DispatchQueue.main.async {
-                cell.img.image = pepe
+                cell.img.image = imagen
             }
         }
     })
+   
     return cell
  }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -83,23 +88,49 @@ extension MainTableViewController {
         return 70
     }
 }
-extension MainTableViewController: UISearchBarDelegate, UISearchResultsUpdating {
+extension MainTableViewController: UISearchBarDelegate{
+    //, UISearchResultsUpdating
     
-    
-    func initSearchController() {
-        
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        tableView.tableHeaderView = searchController.searchBar
-        
-             //self.navigationItem.titleView = searchController
-
+    func initSearchBar() {
+        searchBar.delegate = self
+        searchBar.isHidden = false
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchBarActive = true
+        let pepe = searchText
+        filterMovies = movie.filter{ $0.title.contains(pepe) }
+        //filterMovies.forEach { print($0.title) }
+        if filterMovies.count == 0 {
+            searchBarActive = false
+        }
+        self.tableView.reloadData()
     }
+//    func initSearchController() {
+//
+//        searchController.searchResultsUpdater = self
+//        searchController.hidesNavigationBarDuringPresentation = false
+//        searchController.dimsBackgroundDuringPresentation = false
+//        tableView.tableHeaderView = searchController.searchBar
+//
+//             //self.navigationItem.titleView = searchController
+//
+//    }
+//
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBarActive = true
+        self.searchBar.showsCancelButton = true
+        navigationItem.hidesSearchBarWhenScrolling = false
+
+        
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+        self.tableView.reloadData()
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         searchBarActive = true
         let pepe = searchController.searchBar.text!

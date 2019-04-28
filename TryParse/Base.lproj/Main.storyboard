@@ -17,9 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="fuX-ms-ZdF">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="omM-XG-eWP" customClass="TryTableViewCell" customModule="TryParse" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="omM-XG-eWP" id="XSs-92-Y0s">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="119.5"/>
@@ -85,7 +90,10 @@
                             <outlet property="delegate" destination="dJ3-Vl-N7V" id="pDG-RN-SuB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="9QC-d0-cWa"/>
+                    <navigationItem key="navigationItem" title="Title" id="zcy-uY-XRp"/>
+                    <connections>
+                        <outlet property="searchBar" destination="fuX-ms-ZdF" id="oDZ-WE-cok"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBU-9Q-VqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
