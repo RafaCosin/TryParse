@@ -8,6 +8,13 @@
 
 import UIKit
 
+func ensambleURL(size: String,posterPath: String) -> URL {
+    
+    let imgFixed = "https://image.tmdb.org/t/p/"
+    let imageURL = size + "/" + posterPath
+    return URL(string: imgFixed + imageURL)!
+}
+
 func getJSON(movieCompletionHandler:  @escaping ([Movie]?,Error?) -> Void) {
     
     let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=7a312711d0d45c9da658b9206f3851dd&language=en-US&page=1")
@@ -35,8 +42,8 @@ func getJSON(movieCompletionHandler:  @escaping ([Movie]?,Error?) -> Void) {
     task.resume()
 }
 
-func imageFromServerURL(url: URL, imgcompletionHandler: @escaping (UIImage?, Error?) -> Void) {
-    //print("en funcion : \(url)")
+func imageFromURL(url: URL, imgcompletionHandler: @escaping (UIImage?, Error?) -> Void) {
+    
     let task = URLSession.shared.dataTask(with: url,completionHandler: { (data, response, error) in
         
         if error != nil {
