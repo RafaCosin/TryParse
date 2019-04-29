@@ -94,7 +94,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="zcy-uY-XRp"/>
                     <connections>
-                        <outlet property="searchBar" destination="fuX-ms-ZdF" id="oDZ-WE-cok"/>
+                        <outlet property="searchBar" destination="fuX-ms-ZdF" id="dAJ-od-Ax8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBU-9Q-VqS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -130,12 +130,13 @@
                                     <constraint firstAttribute="height" constant="24" id="xnq-Er-JzW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.47394186749387357" green="0.2947043554011658" blue="0.60228037077763363" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" indicatorStyle="black" editable="NO" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5W-vp-haO">
                                 <rect key="frame" x="47" y="502" width="320" height="360"/>
                                 <color key="backgroundColor" red="0.792156862745098" green="0.86274509803921573" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.4739418675" green="0.29470435540000001" blue="0.60228037079999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

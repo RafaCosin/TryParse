@@ -13,17 +13,15 @@ class MainTableViewController: UITableViewController {
      var movie = [Movie]()
      var filterMovies = [Movie]()
      var searchBarActive = false
-
-    
-
-    @IBOutlet weak var searchBar: UISearchBar!
+     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
             super.viewDidLoad()
             initSearchBar()
-            //initSearchController()
+     
             tableView.separatorStyle = .none
-            title = "Privalia Popular films"
+            title = "Popular films"
+        
             getJSON(movieCompletionHandler: {
                  (movie, error) in
                 if let movie = movie {
@@ -31,15 +29,13 @@ class MainTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
              })
-        
         }
     
     override func viewWillAppear(_ animated: Bool) {
         print("viewwillappear ni pa atras")
         super.viewWillAppear(animated)
-        
-        // Add a background view to the table view
-        var img = UIImageView(frame: self.tableView.bounds)
+
+        let img = UIImageView(frame: self.tableView.bounds)
         img.image = UIImage(named: "papel_bloc.png")
         self.tableView.backgroundView = img
 
