@@ -59,5 +59,6 @@ func imageFromURL(url: URL, imgcompletionHandler: @escaping (UIImage?, Error?) -
             imgcompletionHandler(image,nil)
             
         }
-    }).resume()
+    })
+    task.resume()
 }

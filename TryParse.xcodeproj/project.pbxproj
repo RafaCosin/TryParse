@@ -11,6 +11,7 @@
 		380B214F22761D1D0070CF78 /* SearchBar Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380B214E22761D1D0070CF78 /* SearchBar Extension.swift */; };
 		380B2151227621C20070CF78 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380B2150227621C20070CF78 /* DetailViewController.swift */; };
 		380B21552276481D0070CF78 /* papel_bloc.png in Resources */ = {isa = PBXBuildFile; fileRef = 380B21542276481D0070CF78 /* papel_bloc.png */; };
+		3842E89122778313000F23FC /* marilyn_privalia.png in Resources */ = {isa = PBXBuildFile; fileRef = 3842E89022778313000F23FC /* marilyn_privalia.png */; };
 		3859E1AE22731DB100DAC1F5 /* NetworkFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3859E1AD22731DB100DAC1F5 /* NetworkFunc.swift */; };
 		3894B8812271E0A400F617EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3894B8802271E0A400F617EB /* AppDelegate.swift */; };
 		3894B8862271E0A400F617EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3894B8842271E0A400F617EB /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 		380B214E22761D1D0070CF78 /* SearchBar Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchBar Extension.swift"; sourceTree = "<group>"; };
 		380B2150227621C20070CF78 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		380B21542276481D0070CF78 /* papel_bloc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = papel_bloc.png; sourceTree = "<group>"; };
+		3842E89022778313000F23FC /* marilyn_privalia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marilyn_privalia.png; sourceTree = "<group>"; };
 		3859E1AD22731DB100DAC1F5 /* NetworkFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkFunc.swift; sourceTree = "<group>"; };
 		3894B87D2271E0A400F617EB /* TryParse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TryParse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3894B8802271E0A400F617EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +79,10 @@
 				3859E1AD22731DB100DAC1F5 /* NetworkFunc.swift */,
 				3894B8922271E0C200F617EB /* Modelo.swift */,
 				3894B8872271E0AD00F617EB /* Assets.xcassets */,
-				380B21542276481D0070CF78 /* papel_bloc.png */,
 				3894B8842271E0A400F617EB /* Main.storyboard */,
 				3894B8892271E0AD00F617EB /* LaunchScreen.storyboard */,
+				380B21542276481D0070CF78 /* papel_bloc.png */,
+				3842E89022778313000F23FC /* marilyn_privalia.png */,
 				3894B88C2271E0AD00F617EB /* Info.plist */,
 			);
 			path = TryParse;
@@ -143,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3842E89122778313000F23FC /* marilyn_privalia.png in Resources */,
 				3894B88B2271E0AD00F617EB /* LaunchScreen.storyboard in Resources */,
 				3894B8882271E0AD00F617EB /* Assets.xcassets in Resources */,
 				380B21552276481D0070CF78 /* papel_bloc.png in Resources */,
@@ -320,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafacosin.TryParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -338,7 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rafacosin.TryParse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -12,8 +12,7 @@ extension MainTableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return the number of rows
-        if  searchBarActive {
+         if  searchBarActive {
             return filterMovies.count
         } else {
             return movie.count
@@ -40,7 +39,7 @@ extension MainTableViewController {
         let completa = ensambleURL(size: "w154", posterPath: task.posterPath)
         
         imageFromURL(url: completa, imgcompletionHandler: {(image,error) in
-            if let imagen = image {
+             if let imagen = image {
                 
                 DispatchQueue.main.async {
                     cell.img.image = imagen

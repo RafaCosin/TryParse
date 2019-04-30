@@ -32,9 +32,7 @@ class MainTableViewController: UITableViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("viewwillappear ni pa atras")
         super.viewWillAppear(animated)
-
         let img = UIImageView(frame: self.tableView.bounds)
         img.image = UIImage(named: "papel_bloc.png")
         self.tableView.backgroundView = img
@@ -54,8 +52,5 @@ class MainTableViewController: UITableViewController {
              
             }
         }
-    }
-        
+    }        
 }
-
-
